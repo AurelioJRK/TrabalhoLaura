@@ -1,0 +1,137 @@
+#include <stdio.h>
+#include <math.h>
+
+float soma(float a, float b) {
+    return a + b;
+}
+
+float subtracao(float a, float b) {
+    return a - b;
+}
+
+float multiplicacao(float a, float b) {
+    return a * b;
+}
+
+float divisao(float a, float b) {
+    if (b != 0)
+        return a / b;
+    else {
+        printf("erro");
+        return 0;
+    }
+}
+
+float exponenciacao(float base, float expoente) {
+    return pow(base, expoente);
+}
+
+float raiz_quadrada(float n) {
+    if (n >= 0)
+        return sqrt(n);
+    else {
+        printf("erro");
+        return 0;
+    }
+}
+
+int modulo(int a, int b) {
+    return a % b;
+}
+
+void bhaskara(float a, float b, float c) {
+    float delta = b * b - 4 * a * c;
+
+    if (delta > 0) {
+        float x1 = (-b + sqrt(delta)) / (2 * a);
+        float x2 = (-b - sqrt(delta)) / (2 * a);
+        printf("as raízes são: x1 = %.2f e x2 = %.2f\n", x1, x2);
+    } else if (delta == 0) {
+        float x = -b / (2 * a);
+        printf("a raiz é única: x = %.2f\n", x);
+    } else
+        printf("erro");
+}
+
+int main() {
+    int opcao;
+    float a, b, c;
+
+    do {
+        printf("1. soma\n");
+        printf("2. subtração\n");
+        printf("3. multiplicação\n");
+        printf("4. divisão\n");
+        printf("5. exponenciação\n");
+        printf("6. raiz Quadrada\n");
+        printf("7. módulo\n");
+        printf("8. bhaskara\n");
+        printf("9. sair\n");
+        printf("escolha uma operação: ");
+        scanf("%d", &opcao);
+
+        switch (opcao) {
+            case 1:
+                printf("digite o primeiro numero: ");
+                scanf("%f",&a);
+                printf("digite o segundo numero: ");
+                scanf("%f",&b);
+                printf("resultado: %.2f\n", soma(a, b));
+                break;
+            case 2:
+               printf("digite o primeiro numero: ");
+                scanf("%f",&a);
+                printf("digite o segundo numero: ");
+                scanf("%f",&b);
+                printf("resultado: %.2f\n", subtracao(a, b));
+                break;
+            case 3:
+                printf("digite o primeiro numero: ");
+                scanf("%f",&a);
+                printf("digite o segundo numero: ");
+                scanf("%f",&b);
+                printf("resultado: %.2f\n", multiplicacao(a, b));
+                break;
+            case 4:
+                printf("digite o primeiro numero: ");
+                scanf("%f",&a);
+                printf("digite o segundo numero: ");
+                scanf("%f",&b);
+                printf("resultado: %.2f\n", divisao(a, b));
+                break;
+            case 5:
+                printf("digite o primeiro numero: ");
+                scanf("%f",&a);
+                printf("digite o segundo numero: ");
+                scanf("%f",&b);
+                printf("resultado: %.2f\n",exponenciacao(a,b));
+            case 6:
+                printf("digite um numero: ");
+                scanf("%f", &a);
+                printf("resultado: %.2f\n", raiz_quadrada(a));
+                break;
+            case 7:
+                printf("digite o primeiro numero: ");
+                scanf("%f",&a);
+                printf("digite o segundo numero: ");
+                scanf("%f",&b);
+                 printf("resultado: %d\n", modulo((int)a, (int)b));
+            case 8:
+                printf("digite o primeiro numero: ");
+                scanf("%f",&a);
+                printf("digite o segundo numero: ");
+                scanf("%f",&b);
+                printf("digite o terceiro numero: ");
+                scanf("%f",&c);
+                bhaskara(a, b, c);
+                break;
+            case 9:
+                printf("Encerrando o programa.\n");
+                break;
+            default:
+                printf("Opção invalida.\n");
+        }
+    } while (opcao != 9);
+
+    return 0;
+}
